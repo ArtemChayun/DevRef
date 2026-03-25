@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>HTML & CSS Reference</title>
+  <meta name="description" content="Справочник по тегам HTML и свойствам CSS с примерами">
+  <meta name="theme-color" content="#f8f7f4">
+
+  <!-- Preconnect Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+
+  <!-- ─── Header ──────────────────────────────────────────────────────────── -->
+  <header class="header" role="banner">
+    <div class="header-inner">
+
+      <!-- Logo -->
+      <div class="logo">
+        <div class="logo-icon">&lt;/&gt;</div>
+        <span class="logo-text">DevRef<span class="logo-sub"> · справочник</span></span>
+      </div>
+
+      <!-- Tabs -->
+      <nav class="tabs" role="tablist" aria-label="Разделы справочника">
+        <button class="tab-btn active" role="tab" data-tab="html"
+                aria-selected="true" aria-controls="itemsGrid">
+          <i class="fab fa-html5" aria-hidden="true"></i>
+          HTML
+          <span class="tab-badge">106</span>
+        </button>
+        <button class="tab-btn" role="tab" data-tab="css"
+                aria-selected="false" aria-controls="itemsGrid">
+          <i class="fab fa-css3-alt" aria-hidden="true"></i>
+          CSS
+          <span class="tab-badge">80</span>
+        </button>
+      </nav>
+
+      <!-- Search -->
+      <div class="search-wrap" role="search">
+        <i class="fas fa-search search-icon" aria-hidden="true"></i>
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="Поиск тегов и свойств…"
+          aria-label="Поиск"
+          autocomplete="off"
+          spellcheck="false"
+        >
+        <button id="clearBtn" aria-label="Очистить поиск" tabindex="-1">
+          <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ─── Main content ─────────────────────────────────────────────────────── -->
+  <main class="main" role="main">
+
+    <!-- Categories -->
+    <section class="categories-section" aria-label="Фильтр по категориям">
+      <div class="category-scroll" id="categoryBar" role="group" aria-label="Категории"></div>
+    </section>
+
+    <!-- Count -->
+    <p class="count-bar" aria-live="polite" aria-atomic="true">
+      <span id="resultCount"></span>
+    </p>
+
+    <!-- Items -->
+    <div class="items-grid" id="itemsGrid" role="list" aria-label="Элементы справочника"></div>
+
+  </main>
+
+  <!-- ─── Modal overlay ────────────────────────────────────────────────────── -->
+  <div class="modal-overlay" id="modalOverlay" aria-hidden="true"></div>
+
+  <!-- ─── Modal ────────────────────────────────────────────────────────────── -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-hidden="true"
+       aria-labelledby="modalTitle">
+    <div class="modal-box">
+
+      <!-- Handle (mobile) -->
+      <div class="modal-handle" aria-hidden="true">
+        <div class="modal-handle-bar"></div>
+      </div>
+
+      <!-- Header -->
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <div id="modalTitle"></div>
+          <div id="modalCategory"></div>
+        </div>
+        <button class="modal-close" id="modalClose" aria-label="Закрыть">
+          <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <!-- Body -->
+      <div class="modal-body">
+
+        <!-- Description -->
+        <div>
+          <p class="modal-section-label">Описание</p>
+          <p id="modalDescription"></p>
+        </div>
+
+        <!-- Attributes / Values -->
+        <div id="modalAttrsSection">
+          <p class="modal-section-label" id="modalAttrsLabel">Атрибуты</p>
+          <div class="attrs-list" id="modalAttrsList"></div>
+        </div>
+
+        <!-- Example code -->
+        <div>
+          <p class="modal-section-label">Пример</p>
+          <div class="code-wrap">
+            <div class="code-block">
+              <code id="modalCode"></code>
+            </div>
+            <button class="copy-btn" id="copyBtn" aria-label="Скопировать код">
+              <i class="fas fa-copy" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer -->
+      <div class="modal-footer">
+        <a id="modalMdn" href="#" target="_blank" rel="noopener noreferrer" class="mdn-link">
+          <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+          Открыть на MDN
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ─── Scripts ──────────────────────────────────────────────────────────── -->
+  <script src="js/data-html.js"></script>
+  <script src="js/data-css.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
